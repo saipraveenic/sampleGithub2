@@ -178,7 +178,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub saipraveenic Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/saipraveenic/sampleGithub</url>
+			<url>https://maven.pkg.github.com/saipraveenic/sampleGithub2</url>
 		</repository>
 	</distributionManagement>
 
