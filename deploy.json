@@ -1,0 +1,38 @@
+{
+    "domain": "githubsample2",
+    "region": "us-east-1",
+    "monitoringEnabled": true,
+    "monitoringAutoRestart": true,
+    "environment": "Sandbox",
+    "workers": {
+        "amount": 1,
+        "type": {
+            "name": "Micro"
+        }
+    },
+    "loggingNgEnabled": true,
+    "persistentQueues": false,
+    "objectStoreV1": false
+}
+
+
+
+
+
+{
+    "domain": "githubsample2",
+    "region": "us-east-1",
+    "monitoringEnabled": true,
+    "monitoringAutoRestart": true,
+    
+"autoStart": true, 
+    "workers": {
+        "amount": 1,
+        "type": {
+            "name": "Micro"
+        }
+    },
+    "loggingNgEnabled": true,
+    "persistentQueues": false,
+    "objectStoreV1": false
+}

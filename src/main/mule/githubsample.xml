@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="557e13d9-a967-4c93-8aa1-7667fcb29bf7" >
+		<http:listener-connection host="0.0.0.0" port="${http.port}" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="1375a9ea-0bfa-4a42-8d48-9ebb18b6a6ff" file="dev.properties" />
+	<flow name="githubsampleFlow" doc:id="86c231b3-4e54-4a9c-a5bf-667cce23ca68" >
+		<http:listener doc:name="Listener" doc:id="a3323d00-b264-470a-9b8f-b24774e04df6" config-ref="HTTP_Listener_config" path="/test"/>
+		<ee:transform doc:name="Transform Message" doc:id="3d556370-d5ab-46bd-8237-8f8034dc6554" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output json
+---
+{
+	"message": "Test route message"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="githubsampleFlow1" doc:id="6e5b6f3f-4043-43f5-a6cd-1ab3d560643c" >
+		<http:listener doc:name="Listener" doc:id="0bc6560b-bdce-47ef-8aa5-952cf1e34b2f" config-ref="HTTP_Listener_config" path="/test2"/>
+		<ee:transform doc:name="Transform Message" doc:id="e84c5445-7988-44d4-b776-a548fdb9da74" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output json
+---
+{
+	"message": "Test route message"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="githubsampleFlow2" doc:id="8a9d0924-1f7a-4cbe-95cd-b43f4b2da963" >
+		<http:listener doc:name="Listener" doc:id="d57bfdc8-a4af-42f7-83ac-238b5d325221" config-ref="HTTP_Listener_config" path="/test3" />
+		<ee:transform doc:name="Transform Message" doc:id="08c3c5c9-6271-4a30-8800-91ce8295f2ae" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output json
+---
+{
+	"message": "Test route message"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="githubsampleFlow3" doc:id="cdad3f4b-0f2e-451d-9154-4c0b6bd9f031" >
+		<http:listener doc:name="Listener" doc:id="146d08b6-c751-4c01-95a1-acb22e6dd43f" config-ref="HTTP_Listener_config" path="/test4" />
+		<ee:transform doc:name="Transform Message" doc:id="e01d18b4-6df5-4a30-9f52-1cbabcd09ef8" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output json
+---
+{
+	"message": "Test route message"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="githubsampleFlow4" doc:id="a7add3e1-fb2f-4b9c-9cd8-0e217066359b" >
+		<http:listener doc:name="Listener" doc:id="28a79363-a71f-49ee-b748-a0c8158f95cd" config-ref="HTTP_Listener_config" path="/test5" />
+		<ee:transform doc:name="Transform Message" doc:id="1a8ba13a-8e02-49a8-9d0d-5a4cfa9d7e39" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output json
+---
+{
+	"message": "Test route message"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

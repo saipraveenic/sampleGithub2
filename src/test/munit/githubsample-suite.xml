@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="githubsample-suite.xml" />
+	<munit:test name="githubsampleFlow-test" doc:id="e7a0a6a2-e3d3-478c-96b0-35f93433dbdd" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="58b8b234-ab9a-4a61-81f9-45f7c4b4bed0" >
+				<munit:payload value="#[readUrl('classpath://githubsampleFlowtest\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://githubsampleFlowtest\set-event_attributes.dwl')]" />
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to githubsampleFlow" doc:id="390dfe25-92e8-48e8-98e3-c991c608b59b" name="githubsampleFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="2cbb9466-6050-4c61-a5de-74544c970171" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import githubsampleFlowtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="githubsampleFlow-test1" doc:id="60666ef9-88f6-4ee3-a612-573ef444bb7e" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="d177ca33-9864-4ec9-b97b-ee75c4e2d8f9" >
+				<munit:payload value="#[readUrl('classpath://githubsampleFlowtest1\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://githubsampleFlowtest1\set-event_attributes.dwl')]" />
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to githubsampleFlow" doc:id="654cbadc-f955-4e55-b62d-b0e7b80c611b" name="githubsampleFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="e3099bef-6d68-4ff3-b32e-8a858b8b1bc0" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import githubsampleFlowtest1::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="githubsampleFlow1-test" doc:id="5152867a-2298-4e5a-9edd-006aab775f65" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="4af78c71-44f3-4e73-80df-82d66794cfef" >
+				<munit:payload value="#[readUrl('classpath://githubsampleFlow1test\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://githubsampleFlow1test\set-event_attributes.dwl')]" />
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to githubsampleFlow1" doc:id="0b465a06-6d2a-46b7-b10b-28ad9dd7d1f6" name="githubsampleFlow1"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="9fae35a3-ea92-44b2-aa90-312fd28ceb62" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import githubsampleFlow1test::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="githubsampleFlow2-test" doc:id="19722c65-8e44-488b-adfb-31f4bd7b308b" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="d951de2a-8e5a-4c39-b0b1-e98ffe091158" >
+				<munit:payload value="#[readUrl('classpath://githubsampleFlow2test\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://githubsampleFlow2test\set-event_attributes.dwl')]" />
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to githubsampleFlow2" doc:id="db151237-5ac2-458e-ae8d-939bb0e004f6" name="githubsampleFlow2"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="63ef0454-c3ff-4b8b-9b80-b2bd5da1ca48" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import githubsampleFlow2test::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="githubsampleFlow3-test" doc:id="00ad701c-a7f1-4707-bc87-b1255f011a07" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="82c88a7f-f42a-4dc3-bb0e-c46dc08bc51a" >
+				<munit:payload value="#[readUrl('classpath://githubsampleFlow3test\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://githubsampleFlow3test\set-event_attributes.dwl')]" />
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to githubsampleFlow3" doc:id="f772664f-6c1e-4eea-adec-32d1b1a13df8" name="githubsampleFlow3"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="3bb3a1b8-a956-4729-8763-bc66a5e9cde5" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import githubsampleFlow3test::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="githubsampleFlow4-test" doc:id="aa997554-93af-4a81-9be0-01eb907ef978" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="2c78e3c0-08bb-4828-8e8b-9468b788beda" >
+				<munit:payload value="#[readUrl('classpath://githubsampleFlow4test\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://githubsampleFlow4test\set-event_attributes.dwl')]" />
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to githubsampleFlow4" doc:id="fad850ac-23ef-46ce-9405-5fb8772523f5" name="githubsampleFlow4"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="b2fcdd6f-aabb-430f-a5ff-d2f58bcc55e4" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import githubsampleFlow4test::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

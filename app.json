@@ -1,0 +1,16 @@
+{
+    "domain": "githubsample",
+    "region": "us-east-1",
+    "monitoringEnabled": true,
+    "monitoringAutoRestart": true,
+    "environment": "Sandbox",
+    "workers": {
+        "amount": 1,
+        "type": {
+            "name": "Micro"
+        }
+    },
+    "loggingNgEnabled": true,
+    "persistentQueues": true,
+    "objectStoreV1": true
+}
