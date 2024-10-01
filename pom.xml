@@ -35,7 +35,7 @@
                         <uri>https://anypoint.mulesoft.com</uri>
                         <username>sai-ic3</username>
                         <password>Mulesoft@123</password>
-						<applicationName>${project.artifactId}</applicationName>
+                        <applicationName>${project.artifactId}</applicationName>
                         <environment>Sandbox</environment>
                         <workers>1</workers>
                         <workerType>Micro</workerType>
@@ -93,6 +93,36 @@
             <version>3.2.1</version>
             <classifier>mule-plugin</classifier>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>mule-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>mule-metadata-model-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>mule-message-metadata-model</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>mule-artifact-declaration</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>mule-artifact-declaration-persistence</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>api-annotations</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>mule-embedded-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.mulesoft.munit</groupId>
@@ -100,6 +130,36 @@
             <version>3.2.1</version>
             <classifier>mule-plugin</classifier>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>mule-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>mule-metadata-model-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>mule-message-metadata-model</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>mule-artifact-declaration</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>mule-artifact-declaration-persistence</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>api-annotations</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.mule.runtime</groupId>
+                    <artifactId>mule-embedded-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.mule.weave</groupId>
@@ -128,10 +188,6 @@
             <url>https://repository.mulesoft.org/releases/</url>
             <layout>default</layout>
         </repository>
-        <!-- <repository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/saipraveenic/sampleGithub</url>
-        </repository> -->
     </repositories>
 
     <pluginRepositories>
